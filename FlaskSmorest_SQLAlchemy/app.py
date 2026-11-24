@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_smorest import Api
 
-from db import db
+from .db import db
 
-from resources.item import blp as ItemBlueprint
-from resources.store import blp as StoreBlueprint
+from .resources.item import blp as ItemBlueprint
+from .resources.store import blp as StoreBlueprint
 
 
 def create_app(db_url=None):
