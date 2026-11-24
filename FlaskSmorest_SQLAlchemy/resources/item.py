@@ -2,9 +2,9 @@ from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
 
-from db import db
-from models import ItemModel
-from schemas import ItemSchema, ItemUpdateSchema
+from ..db import db
+from ..models.item import ItemModel
+from ..schema import ItemSchema, ItemUpdateSchema
 
 blp = Blueprint("Items", __name__, description="Operations on items")
 

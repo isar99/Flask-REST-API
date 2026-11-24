@@ -1,5 +1,7 @@
 from marshmallow import Schema, fields
 
+# Load only makes fields write-only
+# Dump only makes fields read-only
 
 class PlainItemSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -9,7 +11,7 @@ class PlainItemSchema(Schema):
 
 class PlainStoreSchema(Schema):
     id = fields.Int(dump_only=True)
-    name = fields.Str()
+    name = fields.Str(required=True)
 
 
 class ItemSchema(PlainItemSchema):
