@@ -55,6 +55,14 @@ class ItemList(MethodView):
             db.session.commit()
         except SQLAlchemyError:
             abort(500, message="An error occurred while inserting the item.")
-
         return item
+
+
+@blp.route("/item/<string:item_id>/tag/<string:tag_id>")
+class ItemTag(MethodView):
+    def post(self, item_id, tag_id, ):
+        pass
+
+    def delete(self):
+        pass
 

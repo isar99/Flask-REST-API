@@ -11,5 +11,6 @@ class ItemModel(db.Model):
     store_id = db.Column(
         db.Integer, db.ForeignKey("stores.id"), unique=False, nullable=False
     )
+    tag_id = db.Column(db.Integer, db.ForeignKey("tags.id"), unique=False, nullable=False)
     store = db.relationship("StoreModel", back_populates="items")
 

@@ -26,3 +26,7 @@ class ItemUpdateSchema(Schema):
 
 class StoreSchema(PlainStoreSchema):
     items = fields.List(fields.Nested(PlainItemSchema()), dump_only=True)
+
+class TagSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str(required=True)

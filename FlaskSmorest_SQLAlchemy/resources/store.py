@@ -47,3 +47,11 @@ class StoreList(MethodView):
 
         return store
 
+@blp.route("/item/<string:store_id>/tag/<string:tag_id>")
+class StoreTag(MethodView):
+    def post(self, store_id, tag_id, ):
+        pass
+
+    def delete(self, store_id, tag_id,):
+        pass
+
