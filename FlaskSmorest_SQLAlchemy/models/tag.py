@@ -5,6 +5,8 @@ class TagModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
-    store_id = db.Column(db.Integer, db.Foreignkey("stores.id"), nullable=False)
+    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
 
-    store = db.relationship("StoreModel, back_populate=tags")
+    store = db.relationship("StoreModel", back_populates="tags")
+    items = db.releationship("ItemModel", back_populates="tags",
+                             seconday="items_tags")
