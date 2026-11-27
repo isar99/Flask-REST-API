@@ -1,2 +1,16 @@
+# Virtual environments
 flask_venv
-main.py
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# IDE
+.idea/
+
+# Flask instance folder
+instance/
+
+# Environment variables
+.env

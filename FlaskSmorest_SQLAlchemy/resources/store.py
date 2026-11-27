@@ -10,7 +10,7 @@ from ..schema import StoreSchema
 blp = Blueprint("Stores", __name__, description="Operations on stores")
 
 
-@blp.route("/store/<string:store_id>")
+@blp.route("/store/<int:store_id>")
 class Store(MethodView):
     @blp.response(200, StoreSchema)
     def get(self, store_id):
@@ -47,7 +47,7 @@ class StoreList(MethodView):
 
         return store
 
-@blp.route("/item/<string:store_id>/tag/<string:tag_id>")
+@blp.route("/item/<int:store_id>/tag/<int:tag_id>")
 class StoreTag(MethodView):
     def post(self, store_id, tag_id, ):
         pass
