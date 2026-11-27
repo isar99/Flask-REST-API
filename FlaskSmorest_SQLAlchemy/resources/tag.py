@@ -1,5 +1,4 @@
 from flask_smorest import Blueprint, abort
-from flask import Flask
 from sqlalchemy.exc import SQLAlchemyError
 from flask.views import MethodView
 from ..schema import TagSchema, TagAndItemSchema
@@ -10,7 +9,7 @@ from ..db import db
 
 blp = Blueprint("tags", "tags", description="Operations on tag")
 
-@blp.route("/tag/<string:tag_id>")
+@blp.route("/tag/<int:tag_id>")
 class Tag(MethodView):
     @blp.response(200, TagSchema)
     def get(self, tag_id):
@@ -31,7 +30,7 @@ class Tag(MethodView):
             return {"message": "Tag deleted"}
         abort(400, message="Could not delete tag")
 
-@blp.route("/store/<string:store_id>/tags")
+@blp.route("/store/<int:store_id>/tags")
 class TagsInStore(MethodView):
     @blp.response(200, TagSchema(many=True))
     def get(self, store_id):
@@ -49,7 +48,7 @@ class TagsInStore(MethodView):
             abort(500, message=str(e))
         return tag
 
-@blp.route("/item/<string:item_id>/tags/<string:tag_id>")
+@blp.route("/item/<int:item_id>/tags/<int:tag_id>")
 class LinkTagsToItem(MethodView):
     @blp.response(201, TagSchema)
     def post(self, item_id, tag_id):
